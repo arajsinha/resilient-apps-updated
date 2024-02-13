@@ -1,39 +1,27 @@
 {
-    "_version": "1.29.0",
+    "_version": "1.59.0",
     "sap.app": {
-        "id": "com.sap.tfe.bp.businesspartners",
+        "id": "ns.businesspartners",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
-            "version": "1.0.0"
+            "version": "0.0.1"
         },
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
-        "dataSources": {
-            "mainService": {
-                "uri": "srv-api/admin/",
-                "type": "OData",
-                "settings": {
-                    "odataVersion": "4.0"
-                }
-            }
-        },
-        "offline": false,
         "resources": "resources.json",
         "sourceTemplate": {
-            "id": "ui5template.fiorielements.v4.lrop",
-            "version": "1.0.0"
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.12.3",
+            "toolsId": "e935b353-fcc8-47a2-9b2b-80618e8b1f39"
         },
-        "crossNavigation": {
-            "inbounds": {
-                "intent1": {
-                    "signature": {
-                        "parameters": {},
-                        "additionalParameters": "allowed"
-                    },
-                    "semanticObject": "Dynamic",
-                    "action": "display",
-                    "title": "{{appTitle}}"
+        "dataSources": {
+            "mainService": {
+                "uri": "/odata/v4/admin/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "odataVersion": "4.0"
                 }
             }
         }
@@ -55,21 +43,26 @@
         }
     },
     "sap.ui5": {
-        "resources": {
-            "js": [],
-            "css": []
-        },
+        "flexEnabled": true,
         "dependencies": {
-            "minUI5Version": "1.76.0",
+            "minUI5Version": "1.120.6",
             "libs": {
+                "sap.m": {},
                 "sap.ui.core": {},
+                "sap.ushell": {},
                 "sap.fe.templates": {}
             }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
         },
         "models": {
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/i18n.properties"
+                "settings": {
+                    "bundleName": "ns.businesspartners.i18n.i18n"
+                }
             },
             "": {
                 "dataSource": "mainService",
@@ -80,9 +73,17 @@
                     "autoExpandSelect": true,
                     "earlyRequests": true
                 }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
             }
         },
+        "resources": {
+            "css": []
+        },
         "routing": {
+            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",
@@ -107,18 +108,14 @@
                     "name": "sap.fe.templates.ListReport",
                     "options": {
                         "settings": {
-                            "entitySet": "BusinessPartnerVerification",
+                            "contextPath": "/BusinessPartnerVerification",
                             "variantManagement": "Page",
-                            "initialLoad": true,
                             "navigation": {
                                 "BusinessPartnerVerification": {
                                     "detail": {
                                         "route": "BusinessPartnerVerificationObjectPage"
                                     }
                                 }
-                            },
-                            "controlConfiguration": {
-                                "@com.sap.vocabularies.UI.v1.LineItem": {}
                             }
                         }
                     }
@@ -129,9 +126,10 @@
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
-                            "entitySet": "BusinessPartnerVerification",
+                            "editableHeaderContent": false,
+                            "contextPath": "/BusinessPartnerVerification",
                             "navigation": {
-                                "_addresses": {
+                                "addresses": {
                                     "detail": {
                                         "route": "AddressesObjectPage"
                                     }
@@ -146,28 +144,15 @@
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
-                            "entitySet": "Addresses",
-                            "navigation": {}
+                            "editableHeaderContent": false,
+                            "contextPath": "/BusinessPartnerVerification/addresses"
                         }
                     }
                 }
             }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
         }
     },
-    "sap.platform.abap": {
-        "_version": "1.1.0",
-        "uri": ""
-    },
-    "sap.platform.hcp": {
-        "_version": "1.1.0",
-        "uri": ""
-    },
     "sap.fiori": {
-        "_version": "1.1.0",
         "registrationIds": [],
         "archeType": "transactional"
     },

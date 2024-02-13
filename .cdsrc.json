@@ -4,9 +4,9 @@
   },
   "requires": {
     "[production]": {
-      "OP_API_BUSINESS_PARTNER_SRV": {
+      "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
-        "model": "srv/external/OP_API_BUSINESS_PARTNER_SRV",
+        "model": "srv/external/API_BUSINESS_PARTNER",
         "credentials": {
           "destination": "BusinessPartner",
           "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
@@ -15,43 +15,33 @@
       }
     },
     "[hybrid]": {
-      "OP_API_BUSINESS_PARTNER_SRV": {
+      "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
-        "model": "srv/external/OP_API_BUSINESS_PARTNER_SRV",
+        "model": "srv/external/API_BUSINESS_PARTNER",
         "credentials": {
           "destination": "BusinessPartner",
           "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
           "requestTimeout": 1000000
         }
-      }
-    },
-    "OP_API_BUSINESS_PARTNER_SRV": {
-      "kind": "odata-v2",
-      "model": "srv/external/OP_API_BUSINESS_PARTNER_SRV"
-    }
-  },
-  "[development]": {
-    "auth": {
-      "passport": {
-        "strategy": "mock",
+      },
+      "auth": {
+        "kind": "basic",
         "users": {
           "bp-viewer": {
-            "password": "123",
-            "ID": "bp-viewer"
+            "password": "123"
           },
           "bp-admin": {
             "password": "123",
-            "ID": "bp-admin",
-            "roles": ["BPAdmin"]
+            "roles": [
+              "BPAdmin"
+            ]
           }
         }
       }
-    }
-  },
-  "[hybrid]": {
-    "auth": {
-      "passport": {
-        "strategy": "mock",
+    },
+    "[development]": {
+      "auth": {
+        "kind": "basic",
         "users": {
           "bp-viewer": {
             "password": "123",
@@ -60,7 +50,9 @@
           "bp-admin": {
             "password": "123",
             "ID": "bp-admin",
-            "roles": ["BPAdmin"]
+            "roles": [
+              "BPAdmin"
+            ]
           }
         }
       }

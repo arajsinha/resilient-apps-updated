@@ -1,19 +1,24 @@
 using tfe.model.bpVerification as model from '../db/schema';
-using OP_API_BUSINESS_PARTNER_SRV as externalBuPa from './external/OP_API_BUSINESS_PARTNER_SRV.csn';
+using API_BUSINESS_PARTNER as externalBuPa from './external/API_BUSINESS_PARTNER';
 
 @impl : './admin'
 service AdminService {
     @odata.draft.enabled
     entity BusinessPartnerVerification as projection on model.Verifications actions {
-        @Common.SideEffects  : {TargetProperties : [
-            'BusinessPartnerIsBlocked',
-            'verificationStatus_code'
-        ]}
+        @(
+            cds.odata.bindingparameter.name : '_it',
+            Common.SideEffects              : {
+                TargetProperties : ['_it/BusinessPartnerIsBlocked', '_it/verificationStatus_code']
+            }
+        )
         @sap.applicable.path : 'block' action   block();
-        @Common.SideEffects  : {TargetProperties : [
-            'BusinessPartnerIsBlocked',
-            'verificationStatus_code'
-        ]}
+
+        @(
+            cds.odata.bindingparameter.name : '_it',
+            Common.SideEffects              : {
+                TargetProperties : ['_it/BusinessPartnerIsBlocked', '_it/verificationStatus_code']
+            }
+        )
         @sap.applicable.path : 'unblock' action unblock();
     }
     @cds.persistence.skip
@@ -32,21 +37,21 @@ service AdminService {
             CityName,
             StreetName,
             PostalCode,
-            HouseNumber,
+            HouseNumber
     }
 
     entity StatusValues                as projection on model.StatusValues;
     entity Addresses                   as projection on model.Addresses;
     function testFunction() returns String;
 
-    @topic : 'tfe/bp/em/ce/sap/s4/beh/businesspartner/v1/BusinessPartner/Created/v1'
-    event BusinessPartnerCreated {
-        BusinessPartnerID : String;
-    }
+    extend service externalBuPa with {
+        event BusinessPartnerCreated @(topic: 'tfe/bp/em/ce/sap/s4/beh/businesspartner/v1/BusinessPartner/Created/v1') {
+            BusinessPartner : String
+        }
 
-    @topic : 'tfe/bp/em/ce/sap/s4/beh/businesspartner/v1/BusinessPartner/Changed/v1'
-    event BusinessPartnerChanged {
-        BusinessPartnerID : String;
+        event BusinessPartnerChanged @(topic: 'tfe/bp/em/ce/sap/s4/beh/businesspartner/v1/BusinessPartner/Changed/v1') {
+            BusinessPartner : String
+        }
     }
 
 

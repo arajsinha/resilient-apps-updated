@@ -8,4 +8,3 @@ export enum Event {
   CANCEL = 'CANCEL'
 }
 
-export const BUSINESSPARTNERTOPICBASE = 'tfe/bp/em/ce/sap/s4/beh/businesspartner/v1/BusinessPartner/'

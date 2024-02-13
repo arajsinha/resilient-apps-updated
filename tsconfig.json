@@ -2,8 +2,8 @@
     "compilerOptions": {
         "target": "es6",
         "module": "commonjs",
-        "outDir": "./gen/srv/srv",
-        "rootDir": "./srv",
+        "outDir": "./gen/srv",
+        "rootDirs": ["./gen/srv"],
         "baseUrl": "./",
         "moduleResolution": "node",
         "skipLibCheck": true,
@@ -17,9 +17,13 @@
             "ES2017",
             "DOM"
         ],
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["jest", "node"]
     },
     "include": [
         "./srv/**/*"
+    ],
+    "exclude": [
+        "./@cds-models/**/*"
     ]
 }
