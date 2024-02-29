@@ -1,2 +1,2 @@
 
-using from './businesspartners/annotations';
+using from './businesspartnersmain/annotations';

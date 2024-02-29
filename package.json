@@ -43,7 +43,7 @@
         "@types/mocha": "^10.0.6",
         "@types/node": "^20.11.6",
         "@typescript-eslint/eslint-plugin": "^7.0.1",
-        "@typescript-eslint/parser": "^6.0.0",
+        "@typescript-eslint/parser": "^7.0.1",
         "@ui5/cli": "^3.0.0",
         "axios": "^1.2.3",
         "bestzip": "2.2.1",
@@ -53,7 +53,7 @@
         "chai-http": "^4.3.0",
         "chai-subset": "^1.6.0",
         "concurrently": "^8.0.1",
-        "eslint": "8.48.x",
+        "eslint": "^8.0.0",
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-prettier": "^5.0.0",
         "husky": "^8.0.3",
@@ -75,7 +75,7 @@
         "test-ts": "jest",
         "start": "DEBUG=remote cds-serve --profile production",
         "buildtypes": "cds2types --cds ./srv/admin.cds --output ./srv/model/entities.ts --debug",
-        "build:cf": "npm run build:cds && npm run cleanup:ts && npm run build:ts && npm run build --prefix app/businesspartners",
+        "build:cf": "npm run build:cds && npm run cleanup:ts && npm run build:ts && npm run build --prefix app/businesspartnersmain",
         "deploy:live": "mbt build -e live.mtaext --mtar BPVerification.mtar && cf deploy mta_archives/BPVerification.mtar",
         "deploy:trial": "mbt build -e trial.mtaext --mtar BPVerification.mtar && cf deploy mta_archives/BPVerification.mtar",
         "build:ts": "tsc && npx @cap-js/cds-typer '*' --outputDirectory gen/srv/@cds-models",
@@ -112,7 +112,8 @@
         "watch-businesspartners": "cds watch --open ns.businesspartners/index.html?sap-ui-xx-viewCache=false --livereload false",
         "undeploy": "cf undeploy BPVerification --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
-        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "watch-businesspartnersmain": "cds watch --open ns.businesspartnersmain/index.html?sap-ui-xx-viewCache=false --livereload false"
     },
     "lint-staged": {
         "*.ts": [
@@ -184,7 +185,8 @@
     },
     "sapux": [
         "app/businesspartners",
-        "app/businesspartners"
+        "app/businesspartners",
+        "app/businesspartnersmain"
     ],
     "ui5": {
         "dependencies": [

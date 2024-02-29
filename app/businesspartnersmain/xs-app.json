@@ -5,7 +5,7 @@
     {
       "source": "^/odata/(.*)$",
       "target": "/odata/$1",
-      "destination": "BPVerification-srv-api",
+      "destination": "BusinessPartner",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },

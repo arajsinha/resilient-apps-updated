@@ -1,7 +1,7 @@
 import BaseComponent from "sap/fe/core/AppComponent";
 
 /**
- * @namespace ns.businesspartners
+ * @namespace ns.businesspartnersmain
  */
 export default class Component extends BaseComponent {
 

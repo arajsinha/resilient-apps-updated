@@ -8,9 +8,9 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
 
     return new ObjectPage(
         {
-            appId: 'ns.businesspartners',
-            componentId: 'BusinessPartnerVerificationObjectPage',
-            contextPath: '/BusinessPartnerVerification'
+            appId: 'ns.businesspartnersmain',
+            componentId: 'AddressesObjectPage',
+            contextPath: '/BusinessPartnerVerification/addresses'
         },
         CustomPageDefinitions
     );

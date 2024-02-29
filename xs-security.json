@@ -1,40 +1,19 @@
 {
-  "xsappname": "BPVerification",
+  "xsappname": "bpverification",
   "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
   "scopes": [
-    {
-      "name": "$XSAPPNAME.BPAdmin",
-      "description": "BPAdmin"
-    },
     {
       "name": "uaa.user",
       "description": "UAA"
     }
   ],
-  "attributes": [],
   "role-templates": [
-    {
-      "name": "BPAdmin",
-      "description": "BP Admin",
-      "scope-references": [
-        "$XSAPPNAME.BPAdmin"
-      ],
-      "attribute-references": []
-    },
     {
       "name": "Token_Exchange",
       "description": "UAA",
       "scope-references": [
         "uaa.user"
-      ]
-    }
-  ],
-  "role-collections": [
-    {
-      "name": "BPAdmin1",
-      "description": "Business Partner Admin",
-      "role-template-references": [
-        "$XSAPPNAME.BPAdmin"
       ]
     }
   ]

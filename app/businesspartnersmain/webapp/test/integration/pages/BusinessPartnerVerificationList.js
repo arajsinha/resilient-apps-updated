@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'ns.businesspartners',
+            appId: 'ns.businesspartnersmain',
             componentId: 'BusinessPartnerVerificationList',
             contextPath: '/BusinessPartnerVerification'
         },
