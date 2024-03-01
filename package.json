@@ -175,7 +175,7 @@
                 }
             },
             "auth": {
-                "kind": "basic"
+                "kind": "xsuaa"
             },
             "API_BUSINESS_PARTNER": {
                 "kind": "odata-v2",
