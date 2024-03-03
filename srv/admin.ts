@@ -39,8 +39,7 @@ class AdminService extends ApplicationService {
   private delegateQuery = async (req: Request) => {
     return this.bupaSrv.run(req.query)
   }
-
-  //nice  
+ 
 
   private handleBusinessPartnerCreated = async (msg: Request) => {
     const { BusinessPartner: businessPartnerID } = msg.data as IEventData
