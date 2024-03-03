@@ -40,7 +40,7 @@ class AdminService extends ApplicationService {
     return this.bupaSrv.run(req.query)
   }
 
-  //Comment
+  
 
   private handleBusinessPartnerCreated = async (msg: Request) => {
     const { BusinessPartner: businessPartnerID } = msg.data as IEventData
