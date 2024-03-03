@@ -179,7 +179,14 @@
             },
             "API_BUSINESS_PARTNER": {
                 "kind": "odata-v2",
-                "model": "srv/external/API_BUSINESS_PARTNER"
+                "model": "srv/external/API_BUSINESS_PARTNER",
+                "csrf": true,
+                "csrfInBatch": true,
+                "credentials": {
+                    "destination": "BusinessPartner",
+                    "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+                    "requestTimeout": 1000000
+                }
             }
         }
     },
