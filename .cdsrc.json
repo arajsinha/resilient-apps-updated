@@ -4,9 +4,12 @@
   },
   "requires": {
     "[production]": {
+      "auth": "xsuaa",
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER",
+        "csrf": true,
+        "csrfInBatch": true,
         "credentials": {
           "destination": "BusinessPartner",
           "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
@@ -18,42 +21,30 @@
       "API_BUSINESS_PARTNER": {
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER",
+        "csrf": true,
+        "csrfInBatch": true,
         "credentials": {
           "destination": "BusinessPartner",
           "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER",
           "requestTimeout": 1000000
         }
-      },
-      "auth": {
-        "kind": "basic",
-        "users": {
-          "bp-viewer": {
-            "password": "123"
-          },
-          "bp-admin": {
-            "password": "123",
-            "roles": [
-              "BPAdmin"
-            ]
-          }
-        }
       }
-    },
-    "[development]": {
-      "auth": {
-        "kind": "basic",
-        "users": {
-          "bp-viewer": {
-            "password": "123",
-            "ID": "bp-viewer"
-          },
-          "bp-admin": {
-            "password": "123",
-            "ID": "bp-admin",
-            "roles": [
-              "BPAdmin"
-            ]
-          }
+    }
+  },
+  "[development]": {
+    "auth": {
+      "kind": "basic",
+      "users": {
+        "bp-viewer": {
+          "password": "123",
+          "ID": "bp-viewer"
+        },
+        "bp-admin": {
+          "password": "123",
+          "ID": "bp-admin",
+          "roles": [
+            "BPAdmin"
+          ]
         }
       }
     }
