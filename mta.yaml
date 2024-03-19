@@ -190,4 +190,4 @@ build-parameters:
     - builder: custom
       commands:
         - npm install
-        - npm run build:cf
+        - cds build --production && npx rimraf ./gen/srv/srv/**/*.ts && tsc && npx @cap-js/cds-typer '*' --outputDirectory gen/srv/@cds-models && npm run build --prefix app/businesspartnersmain
