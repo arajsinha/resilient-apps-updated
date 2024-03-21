@@ -189,5 +189,6 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm install --production
+        - npm ci
+        - npx cds build --production
         - npm run build:cf
