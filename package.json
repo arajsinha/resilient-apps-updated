@@ -76,7 +76,7 @@
     "deploy:live": "mbt build -e live.mtaext --mtar BPVerification.mtar && cf deploy mta_archives/BPVerification.mtar",
     "deploy:trial": "mbt build -e trial.mtaext --mtar BPVerification.mtar && cf deploy mta_archives/BPVerification.mtar",
     "build:ts": "tsc && npx @cap-js/cds-typer '*' --outputDirectory gen/srv/@cds-models",
-    "build:cds": "cds build --production",
+    "build:cds": "npx cds build --production",
     "cleanup:ts": "npx rimraf ./gen/srv/srv/**/*.ts",
     "ts-typecheck": "tsc --noEmit",
     "prettier-format": "prettier --check --config .prettierrc './{srv,tests}/**/*.{ts,js}' --write",
