@@ -23,6 +23,7 @@
     "express": "^4.18.2",
     "hdb": "^0.19.5",
     "lodash": "^4.17.21",
+    "sudo": "^1.0.3",
     "supertest": "^6.3.3",
     "tar": "^6.1.13",
     "ts-jest": "^29.1.2",
@@ -30,8 +31,8 @@
   },
   "devDependencies": {
     "@sap/approuter": "^14.0.0",
-    "@sap/eslint-plugin-cds": "^2.6.1",
     "@sap/cds-dk": "7.7.2",
+    "@sap/eslint-plugin-cds": "^2.6.1",
     "@sap/eslint-plugin-ui5-jsdocs": "2.0.x",
     "@sap/hdi-deploy": "4.6.1",
     "@sap/html5-repo-mock": "2.1.9",
