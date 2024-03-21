@@ -29,22 +29,22 @@
           "requestTimeout": 1000000
         }
       }
-    }
-  },
-  "[development]": {
-    "auth": {
-      "kind": "basic",
-      "users": {
-        "bp-viewer": {
-          "password": "123",
-          "ID": "bp-viewer"
-        },
-        "bp-admin": {
-          "password": "123",
-          "ID": "bp-admin",
-          "roles": [
-            "BPAdmin"
-          ]
+    },
+    "[development]": {
+      "auth": {
+        "kind": "basic",
+        "users": {
+          "bp-viewer": {
+            "password": "123",
+            "ID": "bp-viewer"
+          },
+          "bp-admin": {
+            "password": "123",
+            "ID": "bp-admin",
+            "roles": [
+              "BPAdmin"
+            ]
+          }
         }
       }
     }

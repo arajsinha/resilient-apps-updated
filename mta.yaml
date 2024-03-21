@@ -189,5 +189,5 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm install
-        - cds build --production && npx rimraf ./gen/srv/srv/**/*.ts && tsc && npx @cap-js/cds-typer '*' --outputDirectory gen/srv/@cds-models && npm run build --prefix app/businesspartnersmain
+        - npm install --production
+        - npm run build:cf
