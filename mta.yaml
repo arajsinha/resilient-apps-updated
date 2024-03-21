@@ -190,5 +190,4 @@ build-parameters:
     - builder: custom
       commands:
         - npm install --production
-        - npm install -g @sap/cds
         - npm run build:cf
