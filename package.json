@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": "^18.14"
+    "node": "^18.18.0"
   },
   "config": {
     "imagePrefix": "<replace with your registry/user>"
